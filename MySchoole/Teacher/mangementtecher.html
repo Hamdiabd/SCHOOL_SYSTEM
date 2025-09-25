@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام إدارة الموظفين - School Horizons</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    
+    /* Main Content Styles */
+    .main-content {
+      max-width: 1200px;
+      margin: 1rem auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+    
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns:auto auto auto;
+      gap: 1rem;
+    }
+    
+    .feature-card {
+      
+      background-color: white;
+      border-radius: 10px;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 9rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      height: 100%;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      border-radius: 12px;
+      font-size: 1.8rem;
+    }
+    
+    .feature-text h3 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    
+    .feature-text p {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    a.alternative{
+      text-decoration-line: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+    }
+    
+    .spanA{
+      font-weight: bold;
+      color: white;
+      border-radius: 10px;
+      padding: 10px 40px;
+      text-decoration-line: none;
+      background: #4A3AFFB0;
+      margin-top: auto;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .system-name {
+        font-size: 2rem;
+      }
+      
+      .header-icons {
+        gap: 1rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .feature-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .feature-icon {
+        margin-bottom: 1rem;
+      }
+    }
+    
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: auto;
+    }
+    
+    .footer-section {
+      text-align: center;
+      min-width: 250px;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    
+    .social-links a:hover {
+      color: var(--accent-color);
+    }
+    
+    @media (max-width: 480px) {
+      .system-name {
+        font-size: 1.8rem;
+      }
+      
+      .header-icons {
+        gap: 7rem;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="system-name">إدارة الموظفين</div>
+      
+      <div class="header-icons">
+        <div class="icon-container">
+          <a href="../Main_screen.html"target="_selfff">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+          </svg>
+        </a>
+        </div>
+        
+        <div class="icon-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+            <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"/>
+          </svg>
+        </div>
+        
+        <div class="icon-container">
+          <a href="../Main_screen.html"target="_selfff">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16" style="height:100px;width: 50px;color: white;">
+            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+          </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <main class="main-content">
+    <section class="features-grid">
+      <!-- إضافة موظف -->
+      <div class="feature-card">
+        <a href="addtecher.html" target="_selfff" class="alternative">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+              <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h3>إضافة موظف</h3>
+            <p>إضافة موظف جديد للنظام</p>
+          </div>
+          <span class="spanA">إضافة</span>
+        </a>
+      </div>
+      
+      <!-- تعديل بيانات موظف -->
+      <div class="feature-card">
+        <a href="alterTacher.html" target="_selfff" class="alternative">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-fill-gear" viewBox="0 0 16 16">
+              <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4m9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h3>تعديل البيانات</h3>
+            <p>تعديل بيانات موظف موجود</p>
+          </div>
+          <span class="spanA">تعديل</span>
+        </a>
+      </div>
+      
+      <!-- حذف موظف -->
+      <div class="feature-card">
+        <a href="Reportsteacher.html" target="_selfff" class="alternative">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-fill-x" viewBox="0 0 16 16">
+              <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+              <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708"/>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h3>حذف موظف</h3>
+            <p>حذف موظف من النظام</p>
+          </div>
+          <span class="spanA">حذف</span>
+        </a>
+      </div>
+      
+      <!-- إدارة الرواتب -->
+      <div class="feature-card">
+        <a href="selecttecher.html" target="_selfff" class="alternative">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M11 15a4 4 极速PDF阅读器"
+              <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2h10a2 2 0 0 1-2-2H3z"/>
+              <path fill-rule="evenodd" d="M12 10a2 2 0 1 0 0-4 2 2 极速PDF阅读器
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h3>إدارة الرواتب</h3>
+            <p>إدارة رواتب الموظفين والحوافز</p>
+          </div>
+          <span class="spanA">رواتب</span>
+        </a>
+      </div>
+      
+      <!-- الاستعلام -->
+      <div class="feature-card">
+        <a href="selecttecher.html" target="_selfff" class="alternative">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 "
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h3>الاستعلام</h3>
+            <p>الاستعلام عن بيانات الموظفين</p>
+          </div>
+          <span class="spanA">بحث</span>
+        </a>
+      </div>
+      
+      <!-- التقارير -->
+      <div class="feature-card">
+        <a href="Reportsteacher.html" target="_selfff" class="alternative">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07z"/>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h3>التقارير</h3>
+            <p>تقارير وإحصائيات الموظفين</p>
+          </div>
+          <span class="spanA">تقارير</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-section">
+      <h3>عن النظام</h3>
+      <p>نظام إدارة موظفين متكامل يتناسب مع المؤسسات التعليمية الكبيرة والصغيرة</p>
+    </div>
+  </footer>
+</body>
+</html>

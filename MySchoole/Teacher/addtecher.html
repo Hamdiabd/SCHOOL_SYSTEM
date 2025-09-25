@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة معلم جديد - نظام إدارة الموظفين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+ 
+        
+        /* Main Content Styles */
+        .main-content {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+        
+        .page-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        /* Form Styles */
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            flex: 1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(74, 58, 255, 0.2);
+        }
+        
+        .required::after {
+            content: " *";
+            color: var(--accent-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-reset {
+            background-color: #6c757d;
+        }
+        
+        .btn-reset:hover {
+            background-color: #5a6268;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        .footer-section {
+            text-align: center;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+        }
+        
+        /* Custom checkbox for subjects */
+        .subjects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .subject-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .subject-checkbox input[type="checkbox"] {
+            width: auto;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+          <div class="system-name">إدارة الموظفين</div>
+          
+          <div class="header-icons">
+            <div class="icon-container">
+              <a href="mangementtecher.html"target="_selfff">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+              </svg>
+            </a>
+            </div>
+            
+            <div class="icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"/>
+              </svg>
+            </div>
+            
+            <div class="icon-container">
+              <a href="../Main_screen.html"target="_selfff">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16" style="height:100px;width: 50px;color: white;">
+                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+              </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+    <main class="main-content">
+        <h1 class="page-title">إضافة معلم جديد</h1>
+        
+        <div class="form-container">
+            <form id="addTeacherForm">
+                <!-- المعلومات الشخصية -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-user"></i>
+                        المعلومات الشخصية
+                    </h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName" class="required">الاسم الكامل</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nationalId" class="required">رقم الهوية</label>
+                            <input type="text" id="nationalId" name="nationalId" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birthDate" class="required">تاريخ الميلاد</label>
+                            <input type="date" id="birthDate" name="birthDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="required">الجنس</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">اختر الجنس</option>
+                                <option value="male">ذكر</option>
+                                <option value="female">أنثى</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" class="required">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address" class="required">العنوان</label>
+                        <textarea id="address" name="address" rows="2" required></textarea>
+                    </div>
+                </div>
+                
+                <!-- المعلومات الوظيفية -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-briefcase"></i>
+                        المعلومات الوظيفية
+                    </h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hireDate" class="required">تاريخ التعيين</label>
+                            <input type="date" id="hireDate" name="hireDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="position" class="required">الوظيفة</label>
+                            <input type="text" id="position" name="position" value="معلم" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department" class="required">القسم</label>
+                            <select id="department" name="department" required>
+                                <option value="">اختر القسم</option>
+                                <option value="arabic">اللغة العربية</option>
+                                <option value="math">الرياضيات</option>
+                                <option value="science">العلوم</option>
+                                <option value="english">اللغة الإنجليزية</option>
+                                <option value="social">الدراسات الاجتماعية</option>
+                                <option value="religion">التربية الإسلامية</option>
+                                <option value="art">الفنون</option>
+                                <option value="sport">التربية البدنية</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="salary" class="required">الراتب الأساسي (ريال سعودي)</label>
+                            <input type="number" id="salary" name="salary" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">التخصصات</label>
+                        <div class="subjects-container">
+                            <label class="subject-checkbox">
+                                <input type="checkbox" name="subjects" value="arabic"> اللغة العربية
+                            </label>
+                            <label class="subject-checkbox">
+                                <input type="checkbox" name="subjects" value="math"> الرياضيات
+                            </label>
+                            <label class="subject-checkbox">
+                                <input type="checkbox" name="subjects" value="science"> العلوم
+                            </label>
+                            <label class="subject-checkbox">
+                                <input type="checkbox" name="subjects" value="english"> اللغة الإنجليزية
+                            </label>
+                            <label class="subject-checkbox">
+                                <input type="checkbox" name="subjects" value="social"> الدراسات الاجتماعية
+                            </label>
+                            <label class="subject-checkbox">
+                                <input type="checkbox" name="subjects" value="religion"> التربية الإسلامية
+                            </label>
+                            <label class="subject-checkbox">
+                                <input type="checkbox" name="subjects" value="art"> الفنون
+                            </label>
+                            <label class="subject-checkbox">
+                                <input type="checkbox" name="subjects" value="sport"> التربية البدنية
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- المعلومات الأكاديمية -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        المعلومات الأكاديمية
+                    </h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="qualification" class="required">المؤهل العلمي</label>
+                            <select id="qualification" name="qualification" required>
+                                <option value="">اختر المؤهل العلمي</option>
+                                <option value="diploma">دبلوم</option>
+                                <option value="bachelor">بكالوريوس</option>
+                                <option value="master">ماجستير</option>
+                                <option value="phd">دكتوراه</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialization" class="required">التخصص الدقيق</label>
+                            <input type="text" id="specialization" name="specialization" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="university">الجامعة</label>
+                            <input type="text" id="university" name="university">
+                        </div>
+                        <div class="form-group">
+                            <label for="graduationYear">سنة التخرج</label>
+                            <input type="number" id="graduationYear" name="graduationYear" min="1950" max="2030">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn">إضافة المعلم</button>
+                    <button type="reset" class="btn btn-reset">مسح الحقول</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-section">
+            <h3>نظام إدارة الموظفين - School Horizons</h3>
+            <p>© 2023 جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('addTeacherForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // التحقق من صحة البيانات
+            const fullName = document.getElementById('fullName').value;
+            const nationalId = document.getElementById('nationalId').value;
+            
+            if (!fullName || !nationalId) {
+                alert('يرجى ملء جميع الحقول الإلزامية');
+                return;
+            }
+            
+            // هنا يمكنك إضافة كود لإرسال البيانات إلى الخادم
+            alert('تم إضافة المعلم بنجاح!');
+            // يمكنك إعادة توجيه المستخدم أو مسح النموذج هنا
+        });
+        
+        // تعيين تاريخ اليوم كقيمة افتراضية لتاريخ التعيين
+        document.getElementById('hireDate').valueAsDate = new Date();
+    </script>
+</body>
+</html>

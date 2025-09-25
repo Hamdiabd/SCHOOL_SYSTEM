@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخطة الدراسية - المدرسة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+   
+        
+        .description {
+            margin: 15px 0;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .grade-section {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+        }
+        
+        .grade-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .grade-icon {
+            font-size: 1.8rem;
+            margin-left: 15px;
+        }
+        
+        .subjects-container {
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .subject-card {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 8px;
+            border-right: 4px solid var(--secondary-color);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .subject-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-left: 15px;
+        }
+        
+        .subject-content {
+            flex: 1;
+        }
+        
+        .subject-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .subject-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .print-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            background-color: #27ae60;
+        }
+        
+        .school-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+        
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .info-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .subjects-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .school-info {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .grade-header {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media print {
+            .print-btn {
+                display: none;
+            }
+            
+            .grade-section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                margin-bottom: 20px;
+            }
+            
+            .subject-card {
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+       <link rel="stylesheet" href="Teacher/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+          <div class="system-name">إدارة الخطة الدراسية</div>
+          
+          <div class="header-icons">
+            <div class="icon-container">
+              <a href="Main_screen.html"target="_selfff">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+              </svg>
+            </a>
+            </div>
+            
+            <div class="icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"/>
+              </svg>
+            </div>
+            
+            <div class="icon-container">
+              <a href="Main_screen.html"target="_selfff">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16" style="height:100px;width: 50px;color: white;">
+                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+              </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+    <div class="study-plan-container">
+
+  
+        <div class="grade-section">
+            <div class="grade-header">
+                <div>
+                    الصف الأول الأساسي
+                </div>
+            </div>
+            <div class="subjects-container">
+                <div class="subject-card">
+                    <i class="fas fa-book-open subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>القرآن الكريم وعلومه</h3>
+                        <p>يتعلم الطالب أساسيات تلاوة القرآن الكريم ومبادئ علومه</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-content">
+                        <h3>التربية الإسلامية</h3>
+                        <p>يتعرف الطالب على مبادئ الدين الإسلامي وأركان الإسلام</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-content">
+                        <h3>اللغة العربية (قراءة)</h3>
+                        <p>يتعلم الطالب أساسيات القراءة والكتابة باللغة العربية</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-calculator subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>الرياضيات</h3>
+                        <p>يتعلم الطالب الأرقام والعمليات الحسابية الأساسية</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <div class="subject-content">
+                        <h3>العلوم</h3>
+                        <p>يتعرف الطالب على أساسيات العلوم والطبيعة من حوله</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الصف الثاني الأساسي -->
+        <div class="grade-section">
+            <div class="grade-header">
+                <div>
+                    
+                    الصف الثاني الأساسي
+                </div>
+            </div>
+            <div class="subjects-container">
+                <div class="subject-card">
+                    <i class="fas fa-book-open subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>القرآن الكريم وعلومه والتربية الإسلامية</h3>
+                        <p>يتعلم الطالب تلاوة القرآن ومبادئ الدين الإسلامي</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-pen-nib subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>اللغة العربية (قراءة)</h3>
+                        <p>يتقن الطالب مهارات القراءة والكتابة الأساسية</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-calculator subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>الرياضيات</h3>
+                        <p>يتعلم الطالب العمليات الحسابية الأكثر تقدمًا</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-flask subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>العلوم</h3>
+                        <p>يتعرف الطالب على مفاهيم علمية أبسط</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-users subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>التربية الاجتماعية</h3>
+                        <p>يتعرف الطالب على المجتمع والعادات والتقاليد</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الصف الثالث الأساسي -->
+        <div class="grade-section">
+            <div class="grade-header">
+                <div>
+                    <i class="fas fa-graduation-cap grade-icon"></i>
+                    الصف الثالث الأساسي
+                </div>
+            </div>
+            <div class="subjects-container">
+                <div class="subject-card">
+                    <i class="fas fa-book-open subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>القرآن الكريم وعلومه والتربية الإسلامية</h3>
+                        <p>يتعلم الطالب تلاوة القرآن ومبادئ الدين الإسلامي</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-pen-nib subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>اللغة العربية والقراءة</h3>
+                        <p>يتقن الطالب مهارات القراءة والكتابة بشكل أفضل</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-calculator subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>الرياضيات</h3>
+                        <p>يتعلم الطالب عمليات حسابية أكثر تعقيدًا</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-flask subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>العلوم</h3>
+                        <p>يتعرف الطالب على مفاهيم علمية متقدمة</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-users subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>التربية الاجتماعية</h3>
+                        <p>يتعرف الطالب على المجتمع والعادات والتقاليد</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الصف الرابع الأساسي -->
+        <div class="grade-section">
+            <div class="grade-header">
+                <div>
+                    <i class="fas fa-graduation-cap grade-icon"></i>
+                    الصف الرابع الأساسي
+                </div>
+            </div>
+            <div class="subjects-container">
+                <div class="subject-card">
+                    <i class="fas fa-book-open subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>القرآن الكريم والتربية الإسلامية</h3>
+                        <p>يتعلم الطالب تلاوة القرآن ومبادئ الدين الإسلامي</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-pen-nib subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>اللغة العربية</h3>
+                        <p>يتقن الطالب مهارات القراءة والكتابة والتعبير</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-calculator subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>الرياضيات</h3>
+                        <p>يتعلم الطالب مواضيع رياضية أكثر تقدمًا</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-flask subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>العلوم</h3>
+                        <p>يتعرف الطالب على مفاهيم علمية متقدمة</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-users subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>التربية الاجتماعية</h3>
+                        <p>يتعرف الطالب على المجتمع والعادات والتقاليد</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الصف الخامس الأساسي -->
+        <div class="grade-section">
+            <div class="grade-header">
+                <div>
+                    <i class="fas fa-graduation-cap grade-icon"></i>
+                    الصف الخامس الأساسي
+                </div>
+            </div>
+            <div class="subjects-container">
+                <div class="subject-card">
+                    <i class="fas fa-book-open subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>القرآن الكريم والتربية الإسلامية</h3>
+                        <p>يتعلم الطالب تلاوة القرآن ومبادئ الدين الإسلامي</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-pen-nib subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>اللغة العربية</h3>
+                        <p>يتقن الطالب مهارات القراءة والكتابة والتعبير</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-calculator subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>الرياضيات</h3>
+                        <p>يتعلم الطالب مواضيع رياضية أكثر تقدمًا</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-flask subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>العلوم</h3>
+                        <p>يتعرف الطالب على مفاهيم علمية متقدمة</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-users subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>التربية الاجتماعية</h3>
+                        <p>يتعرف الطالب على المجتمع والعادات والتقاليد</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الصف السادس الأساسي -->
+        <div class="grade-section">
+            <div class="grade-header">
+                <div>
+                    <i class="fas fa-graduation-cap grade-icon"></i>
+                    الصف السادس الأساسي
+                </div>
+            </div>
+            <div class="subjects-container">
+                <div class="subject-card">
+                    <i class="fas fa-book-open subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>القرآن الكريم والتربية الإسلامية</h3>
+                        <p>يتعلم الطالب تلاوة القرآن ومبادئ الدين الإسلامي</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-pen-nib subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>اللغة العربية</h3>
+                        <p>يتقن الطالب مهارات القراءة والكتابة والتعبير</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-calculator subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>الرياضيات</h3>
+                        <p>يتعلم الطالب مواضيع رياضية أكثر تقدمًا</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-flask subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>العلوم</h3>
+                        <p>يتعرف الطالب على مفاهيم علمية متقدمة</p>
+                    </div>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-users subject-icon"></i>
+                    <div class="subject-content">
+                        <h3>التربية الاجتماعية</h3>
+                        <p>يتعرف الطالب على المجتمع والعادات والتقاليد</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       
+        <div class="school-info">
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h3>أوقات الدوام</h3>
+                <p>من الأحد إلى الخميس</p>
+                <p>7:30 صباحاً - 1:30 ظهراً</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-book"></i>
+                <h3>المنهج المعتمد</h3>
+                <p>المنهج الوزاري المعتمد</p>
+                <p>مع مواد إثرائية إضافية</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>كادر تدريسي مميز</h3>
+                <p>معلمون مؤهلون</p>
+                <p>ذوو خبرة وكفاءة عالية</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

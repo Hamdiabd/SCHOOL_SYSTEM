@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تسجيل مخالفات الطلاب</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    body {
+      background: #D1D1D142;
+    }
+
+    :root {
+      --main-color: #4B56CE;
+      --header-color: #05645B;
+    }
+
+    header {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .header-text {
+      background: linear-gradient(360deg, var(--main-color), var(--header-color));
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .header-text a {
+      color: black;
+      text-decoration-line: none;
+    }
+
+    .bi-house {
+      height: 60px;
+      width: 60px;
+      color: white;
+    }  .header-coponnec
+    {
+      display:flex ;
+      flex-wrap:wrap;
+      justify-content:space-around;
+    }
+    .header-coponnec a{
+      color:black;
+      font-size:20px;
+      padding-block:8px;
+      padding-inline:15px;
+      border-radius:10px;
+      text-decoration-line: none;
+      background:white;
+    }
+
+    main {
+      direction: rtl;
+      margin: 30px auto;
+      max-width: 1200px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .main-container {
+      padding: 30px;
+    }
+
+    .form-section {
+      background: #f9f9f9;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 8px;
+      border-left: 4px solid var(--main-color);
+    }
+
+    .form-section h2 {
+      color: var(--header-color);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .student-id-card {
+      background: linear-gradient(135deg, var(--main-color), var(--header-color));
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns:auto auto;
+      gap: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    .form-group input,
+    .form-group select {
+      
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--main-color);
+      box-shadow: 0 0 0 3px rgba(75, 86, 206, 0.2);
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        margin: 15px;
+      }
+      
+      .main-container {
+        padding: 20px 15px;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+    <div class="main-header">
+      <div class="header-text">
+        <div><a class="Return-student" href="managementStudent.html" target="_selfff">العودة للخلف</a></div>
+        <div>نظام المدرسة - تسجيل مخالفات الطلاب</div>
+        <div><a class="Return-student" href="../Main_screen.html" target="_selfff">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+          </svg>
+        </a></div>
+        
+      </div>
+            <div class="header-coponnec">
+        <div>
+          <a href="AddStudent.html"target="_selfff"class="main_coponnec">اضافة</a></div>
+           <div>
+          <a href="alterStudent.html"target="_selfff"class="main_coponnec">تعديل</a></div>
+           <div>
+          <a href="deleteStudent.html"target="_selfff"class="main_coponnec">حذف</a></div>
+           <div>
+          <a href="ViolationsStudent.html"target="_selfff"class="main_coponnec">المخالفات</a></div>
+           <div>
+          <a href="ViolationsStudent.html"target="_selfff"class="main_coponnec">الغياب</a></div>
+          
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="main-container">
+      <section class="main-Main">
+        <h1>تسجيل مخالفات الطلاب</h1>
+      </section>
+      
+      <div class="student-id-card">
+        <form>
+          ادخل معرف الطالب : 
+          <input type="number" name="IdStudent" id="IdStudent">
+        </form>
+      </div>
+      
+      <form id="studentEditForm">
+        <div class="form-section">
+          <h2>بيانات المخالفة</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">غياب</label>
+              <input type="radio" id="name" name="name">
+            </div>
+            
+            <div class="form-group">
+              <label for="others">غير ذالك</label>
+              <input type="text" id="others" name="others" placeholder="اوصف">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+  <script>
+    document.getElementById('studentEditForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      console.log('بيانات التعديل:', data);
+      alert('تم حفظ التعديلات بنجاح (عرض تجريبي)');
+    });
+  </script>
+</body>
+</html>

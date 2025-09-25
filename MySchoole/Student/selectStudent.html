@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام مدرسة - الاستعلام عن الطلاب</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #1A114A;
+      --secondary-color: #4A3AFF;
+      --accent-color: #FF6B6B;
+      --light-color: #F8F9FA;
+      --dark-color: #212529;
+      --success-color: #28A745;
+      --warning-color: #FFC107;
+      --info-color: #17A2B8;
+    }
+    
+    * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Tajawal', sans-serif;
+        }
+    body {
+      background-color: #f5f5f5;
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+    
+    /* Header Styles */
+    header {
+      background: #0015FFBD;
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .header-coponnec
+    {
+      display:flex ;
+      justify-content:space-around;
+    }
+    .header-coponnec a{
+      color:black;
+      padding-block:8px;
+      padding-inline:15px;
+      border-radius:10px;
+      text-decoration-line: none;
+      background:white;
+    }
+    .school-name {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    .header-icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+    
+    .icon-container {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .school-icon {
+      font-size: 3rem;
+      text-align: center;
+      padding: 1rem 0;
+      color: white;
+    }
+    
+    .Return {
+      color: black;
+      text-decoration: none;
+    }
+    
+    /* Main Content Styles */
+    .main-content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    
+    .search-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+    
+    .search-title {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    
+    .search-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #444;
+    }
+    
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    
+    .search-options {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .search-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+      flex: 1;
+    }
+    
+    .search-btn:hover {
+      background: var(--secondary-color);
+    }
+    
+    .show-all-btn {
+      background: var(--success-color);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+      flex: 1;
+    }
+    
+    .show-all-btn:hover {
+      background: #218838;
+    }
+    
+    /* Results Section */
+    .results-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .results-title {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    
+    .student-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    
+    .student-table th,
+    .student-table td {
+      padding: 12px 15px;
+      text-align: right;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .student-table th {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+    }
+    
+    .student-table tr:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+    }
+    
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .school-name {
+        font-size: 1.5rem;
+      }
+      
+      .search-options {
+        flex-direction: column;
+      }
+      
+      .student-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+    
+    
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="school-name">نظام المدرسة - الاستعلام عن الطلاب</div>
+      
+      <div class="header-icons">
+        <div class="icon-container">
+          <a href="../Main_screen.html" class="Return">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="school-icon">
+          <a href="managementStudent.html" class="Return">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+            <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"/>
+          </svg>
+          </a>
+        </div>
+      </div>
+      <div class="header-coponnec">
+        <div>
+          <a href="AddStudent.html"target="_selfff"class="main_coponnec">اضافة</a></div>
+           <div>
+          <a href="alterStudent.html"target="_selfff"class="main_coponnec">تعديل</a></div>
+           <div>
+          <a href="deleteStudent.html"target="_selfff"class="main_coponnec">حذف</a></div>
+           <div>
+          <a href="ViolationsStudent.html"target="_selfff"class="main_coponnec">المخالفات</a></div>
+           <div>
+          <a href="ViolationsStudent.html"target="_selfff"class="main_coponnec">الغياب</a></div>
+          
+      </div>
+    </div>
+  </header>
+  
+  <main class="main-content">
+    <!-- قسم البحث -->
+    <section class="search-section">
+      <h2 class="search-title">البحث عن طالب</h2>
+      <form class="search-form" id="searchForm">
+        <div class="form-group">
+          <label for="searchType">طريقة البحث:</label>
+          <select id="searchType" name="searchType">
+            <option value="id">بحث بالرقم الجامعي</option>
+            <option value="name">بحث بالاسم</option>
+            <option value="class">بحث بالصف</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="searchInput">ادخل بيانات البحث:</label>
+          <input type="text" id="searchInput" name="searchInput" placeholder="ادخل بيانات البحث هنا...">
+        </div>
+        
+        <div class="search-options">
+          <button type="submit" class="search-btn">
+            <i class="fas fa-search"></i> بحث
+          </button>
+          <button type="button" class="show-all-btn" id="showAllBtn">
+            <i class="fas fa-users"></i> عرض جميع الطلاب
+          </button>
+        </div>
+      </form>
+    </section>
+    
+    <!-- قسم النتائج -->
+    <section class="results-section" id="resultsSection">
+      <h2 class="results-title">نتائج البحث</h2>
+      <div id="resultsContainer">
+        <div class="no-results">
+          <p>لم يتم تنفيذ أي بحث بعد. استخدم نموذج البحث أعلاه للعثور على الطلاب.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+</body>
+</html>
